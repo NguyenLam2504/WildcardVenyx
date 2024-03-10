@@ -2481,8 +2481,56 @@ spawn(
      --------------------------------------------------------------------------------------------------------------------------------------------
      -- Hehe
 
-section1:addToggle("Auto Farm Level", false, function(value)
-  _G.Warp = value
+     section1:addDropdown("select M1", {"Melee", "Sword", "Gun", 1, 2, 3} 
+     function value
+        ChooseWeapon = Value
+     end)
+task.spawn(
+    function()
+        while wait() do
+            pcall(
+                function()
+                    if ChooseWeapon == "Melee" then
+                        for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                            if v.ToolTip == "Melee" then
+                                if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                                    SelectWeapon = v.Name
+                                end
+                            end
+                        end
+                    elseif ChooseWeapon == "Sword" then
+                        for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                            if v.ToolTip == "Sword" then
+                                if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                                    SelectWeapon = v.Name
+                                end
+                            end
+                        end
+                    elseif ChooseWeapon == " Blox Fruit" then
+                        for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                            if v.ToolTip == "Blox Fruit" then
+                                if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                                    SelectWeapon = v.Name
+                                end
+                            end
+                        end
+                    else
+                        for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                            if v.ToolTip == "Melee" then
+                                if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                                    SelectWeapon = v.Name
+                                end
+                            end
+                        end
+                    end
+                end
+            )
+        end
+    end
+)
+
+section1:addToggle("Auto Farm Lv", false, function(value)
+  _G.AutoFarmLv = value
 end)
 
 
