@@ -1282,7 +1282,7 @@ task.spawn(
                 end
             )
         end
-    end
+    end)
 )
 
 page1:Toggle('Auto Farm'    
